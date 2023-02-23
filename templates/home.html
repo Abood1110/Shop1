@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+{%  load static  %}
+{% block body %}
+
+<div class="container">
+  <div class="row justify-content-md-center">
+    <div class="row col col-sm row-cols-4 ">
+      {% for pro in products %}
+
+        
+        <div class="card" style="width: 18rem;">
+          <img src="{{ pro.image.url }}" class="card-img-top" alt="...">
+          <div class="card-body">
+            <h5 class="card-title">{{pro.name}}</h5>
+            <p class="card-text">{{pro.price}}SR</p>
+            <div class="d-grid gap-2">
+              <a href="{% url 'product:product_detail' pro.id %}" class="btn btn-primary">More</a>
+            </div>
+          </div>
+        </div>
+
+      {% endfor %}
+    </div>
+  </div>
+</div>
+{% endblock body %} 
+
